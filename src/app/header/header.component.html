@@ -1,0 +1,103 @@
+<!-- Header -->
+<div class="dshh_header">
+    <div _ngcontent-qyk-c72="" class="card m-0 pt-0 pb-0 m-2"> 
+        <header class="navbar navbar-expand-lg navbar-light mb-3">
+            <div class="w-100 d-flex align-items-center justify-content-between">
+                <a href="#">
+                    <img class="dshh_Logo mt-2" 
+                        src="assets\logo.jpg" width="150" height="130"  />
+                </a>
+            </div>
+        </header>
+    </div>
+</div>
+
+<!-- Navigationbar -->
+
+<div class="card align-items-center">
+    <p-menubar [model]="items">
+        <ng-template pTemplate="item" let-item let-root="root">
+            <a pRipple class="flex align-items-center p-menuitem-link">
+                <span [class]="item.icon"></span>
+                <span class="ml-2">{{ item.label }}</span>
+                <p-badge *ngIf="item.badge" [ngClass]="{ 'ml-auto': !root, 'ml-2': root }" />
+                <span *ngIf="item.shortcut" class="ml-auto border-1 surface-border border-round surface-100 text-xs p-1">{{ item.shortcut }}</span>
+                <i *ngIf="item.items" [ngClass]="['pi', root ? 'pi-angle-down ml-2' : 'pi-angle-right ml-auto']"></i>
+            </a>
+        </ng-template>
+        <ng-template pTemplate="end">
+            <div class="flex align-items-center gap-2">
+                <input type="text" pInputText placeholder="Search" class="w-8rem sm:w-auto" />
+                <p-avatar image="assets\logo.jpg" shape="circle" />
+            </div>
+        </ng-template>
+    </p-menubar>
+</div>
+<br/>
+
+<div class="surface-ground px-4 py-5 md:px-6 lg:px-8">
+    <div class="grid">
+        <div class="col-12 md:col-6 lg:col-3">
+            <div class="surface-card shadow-2 p-3 border-round">
+                <div class="flex justify-content-between mb-3">
+                    <div>
+                        <span class="block text-500 font-medium mb-3">Amount Recived Through Donations</span>
+                        <div class="text-900 font-medium text-xl">${{amountCollected}}</div>
+                    </div>
+                    <div class="flex align-items-center justify-content-center bg-blue-100 border-round" style="width:2.5rem;height:2.5rem">
+                        <i class="pi pi-indian-rupee" style="font-size:2rem"></i>
+                    </div>
+                </div>
+                <!-- <span class="text-green-500 font-medium">24 new </span> -->
+                <span class="text-500">since last visit</span>
+            </div>
+        </div>
+        <div class="col-12 md:col-6 lg:col-3">
+            <div class="surface-card shadow-2 p-3 border-round">
+                <div class="flex justify-content-between mb-3">
+                    <div>
+                        <span class="block text-500 font-medium mb-3">Events Conducted</span>
+                        <div class="text-900 font-medium text-xl">{{noofevents}}</div>
+                    </div>
+                    <div class="flex align-items-center justify-content-center bg-orange-100 border-round" style="width:2.5rem;height:2.5rem">
+                        <!-- <i class="pi pi-map-marker text-orange-500 text-xl">
+                            <img src="assets\logo.jpg" width="50" height="55" alt="">
+                        </i> -->
+                    </div>
+                </div>
+                <!-- <span class="text-green-500 font-medium">%52+ </span> -->
+                <span class="text-500">since last week</span>
+            </div>
+        </div>
+        <div class="col-12 md:col-6 lg:col-3">
+            <div class="surface-card shadow-2 p-3 border-round">
+                <div class="flex justify-content-between mb-3">
+                    <div>
+                        <span class="block text-500 font-medium mb-3">Volunteers</span>
+                        <div class="text-900 font-medium text-xl">{{volunteers}}</div>
+                    </div>
+                    <div class="flex align-items-center justify-content-center bg-cyan-100 border-round" style="width:2.5rem;height:2.5rem">
+                        <i class="pi pi-inbox text-cyan-500 text-xl"></i>
+                    </div>
+                </div>
+                <!-- <span class="text-green-500 font-medium">520  </span> -->
+                <span class="text-500">newly registered</span>
+            </div>
+        </div>
+        <div class="col-12 md:col-6 lg:col-3">
+            <div class="surface-card shadow-2 p-3 border-round">
+                <div class="flex justify-content-between mb-3">
+                    <div>
+                        <span class="block text-500 font-medium mb-3">Our Impact</span>
+                        <div class="text-900 font-medium text-xl">{{helpedbypeople + "+ People"}}</div>
+                    </div>
+                    <div class="flex align-items-center justify-content-center bg-purple-100 border-round" style="width:2.5rem;height:2.5rem">
+                        <i class="pi pi-comment text-purple-500 text-xl"></i>
+                    </div>
+                </div>
+                <span class="text-green-500 font-medium"> </span>
+                <span class="text-500">Since today</span>
+            </div>
+        </div>
+    </div>
+</div>
